@@ -1,0 +1,55 @@
+import java.io.File;
+import java.io.FileWriter;
+import java.util.*;
+
+public class EmployeeDriver {
+
+   public static void main(String[] args) {
+
+       ArrayList<Employee> employees = new ArrayList<>();
+
+       employees.add(new CommissionEmployee("Harry","Smith", "107", 5310.95, 0.23));
+
+       employees.add(new BasePlusCommissionEmployee("James","John", "777", 450.00, 0.1, 4503.48));
+
+       employees.add(new SalariedEmployee("Melanie","Loa", "123", 1927.32));
+
+       employees.add(new HourlyEmployee("Trump","TR", "666", 14.82, 40));
+
+       Invoice i1 = new Invoice("3111", 4, 199.99);
+
+       Invoice i2 = new Invoice("3112", 12, 25.35);
+
+       PayWeek thisweek = new PayWeek("January 21, 2022");
+
+       // add invoice payments and only commissioned employees to pay week
+
+       thisweek.addPayment(i1);
+
+       thisweek.addPayment(i2);
+
+       for (Employee e : employees) {
+
+
+               thisweek.addPayment(e);
+
+
+       }
+
+       try {
+
+           FileWriter fw = new FileWriter(new File("paystub.txt"));
+
+           fw.write(thisweek.toString());
+           fw.flush();
+           fw.close();
+       }catch (Exception e) {
+
+           System.out.println(e.getMessage());
+       }
+
+       System.out.println(thisweek);
+
+   }
+
+}
