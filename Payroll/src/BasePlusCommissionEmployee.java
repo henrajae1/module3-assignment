@@ -1,3 +1,12 @@
+//Karena Galloway Id# 1917009411
+//Rajae Henry Id# 2101012994
+//Jahvell Strachan Id# 1817003544
+//Shameka Taylor id # 1817002318
+//Anna-Kay Francis Id # 2101013079
+//Treshawna Hutchinson Id#  1917009306
+
+
+
 public class BasePlusCommissionEmployee extends CommissionEmployee {
 
     /** The base salary. */
